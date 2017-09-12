@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f3f3f3">
+
+    <EditText
+        android:id="@+id/et_number"
+        android:layout_width="123dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
+
+    <android.inputmethodservice.KeyboardView
+        android:id="@+id/kv_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f3f3f3"
+        android:keyBackground="@drawable/bg_selector"
+        android:keyTextColor="@android:color/black"
+        />
+
+
+
+    
+
+</LinearLayout>
