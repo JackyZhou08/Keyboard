@@ -14,7 +14,20 @@ public class MainActivity extends AppCompatActivity implements KeyView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         et_number = (EditText) findViewById(R.id.et_number);
-        et_number.setShowSoftInputOnFocus(false);//隐藏系统的键盘
+        //隐藏系统的键盘
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            et_number.setShowSoftInputOnFocus(false);
+        } else {
+            try {
+                Class<EditText> cls = EditText.class;
+                Method setSoftInputShownOnFocus;
+                setSoftInputShownOnFocus = cls.getMethod("setShowSoftInputOnFocus", boolean.class);
+                setSoftInputShownOnFocus.setAccessible(true);
+                setSoftInputShownOnFocus.invoke(et_number, false);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         new KeyUtil(this);
     }
 
